@@ -16,7 +16,7 @@ export class PessoaNewComponent implements OnInit {
   form: NgForm
 
   pessoa = new Pessoa(null, '', '', '', '', new Date());
-  message: {};
+  message: any;
   classCss: {};
   image: {};
 

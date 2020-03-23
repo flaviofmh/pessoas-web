@@ -5,7 +5,7 @@
       </div>
       <form class="form-horizontal" #form="ngForm" (ngSubmit)="register()" >
         <div [ngClass]="classCss" role="alert" *ngIf="message">
-          <strong>{{ message.text }}</strong>
+          <strong>{{ message?.text }}</strong>
         </div>
         <div class="box-body">
           <div [ngClass]="getFormGroupClass(false, nome.dirty)">
@@ -34,7 +34,7 @@
                     class="form-control" 
                     name="cpf"
                     id="inputName"
-                    #nome="ngModel"
+                    #cpf="ngModel"
                     placeholder="CPF"
                     cpf
                     required>

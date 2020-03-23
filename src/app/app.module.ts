@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { PessoaComponent } from './components/pessoa/pessoa.component';
 import { PessoaNewComponent } from './components/pessoa-new/pessoa-new.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PessoaNewComponent } from './components/pessoa-new/pessoa-new.component
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routes
   ],
   providers: [],
