@@ -12,21 +12,21 @@ export class PessoaService {
 
   createOrUpdate(pessoa: Pessoa) {
     if(pessoa.id != null) {
-      return this.http.put(`${HELP_PESSOA_API}/pessoa/${pessoa.id}`, pessoa);
+      return this.http.put(`${HELP_PESSOA_API}/pessoas/${pessoa.id}`, pessoa);
     } else {
-      return this.http.post(`${HELP_PESSOA_API}/pessoa`, pessoa);
+      return this.http.post(`${HELP_PESSOA_API}/pessoas`, pessoa);
     }
   }
 
   findAll(page: number, count: number) {
-    return this.http.get(`${HELP_PESSOA_API}/pessoa/${page}/${count}`);
+    return this.http.get(`${HELP_PESSOA_API}/pessoas/${page}/${count}`);
   }
 
   findById(id: number) {
-    return this.http.get(`${HELP_PESSOA_API}/pessoa/${id}`);
+    return this.http.get(`${HELP_PESSOA_API}/pessoas/${id}`);
   }
 
   delete(id: number) {
-    return this.http.delete(`${HELP_PESSOA_API}/pessoa/${id}`);
+    return this.http.delete(`${HELP_PESSOA_API}/pessoas/${id}`);
   }
 }
