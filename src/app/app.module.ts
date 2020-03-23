@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PessoaComponent } from './components/pessoa/pessoa.component';
 import { PessoaNewComponent } from './components/pessoa-new/pessoa-new.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     routes
   ],
   providers: [],

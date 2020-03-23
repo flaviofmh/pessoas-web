@@ -55,6 +55,7 @@ export class PessoaNewComponent implements OnInit {
 
   register() {
     this.message = {};
+    this.pessoa.foto = this.image;
     this.pessoaService.createOrUpdate(this.pessoa).subscribe((responseApi: ResponseApi) => {
       this.pessoa = new Pessoa(null, '', '', '', '', new Date());
       let pessoaRetorno : Pessoa = responseApi.data;
