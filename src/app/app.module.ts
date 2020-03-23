@@ -1,3 +1,4 @@
+import { DialogService } from './dialog.service';
 import { routes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     routes
   ],
-  providers: [],
+  providers: [
+    DialogService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

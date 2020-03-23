@@ -7,7 +7,8 @@ import { ModuleWithProviders } from '@angular/core';
 export const ROUTES: Routes = [
     { path : '', component: HomeComponent },
     { path : 'pessoa', component: PessoaComponent},
-    { path : 'pessoa-new', component: PessoaNewComponent}
+    { path : 'pessoa-new', component: PessoaNewComponent},
+    { path : 'pessoa-new/:id', component: PessoaNewComponent}
 ]
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(ROUTES);

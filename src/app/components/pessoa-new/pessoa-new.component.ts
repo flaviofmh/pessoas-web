@@ -15,7 +15,7 @@ export class PessoaNewComponent implements OnInit {
   @ViewChild("form")
   form: NgForm
 
-  pessoa = new Pessoa(null, '', '', '', '', new Date());
+  pessoa = new Pessoa(null, '', '', '', '', null);
   message: any;
   classCss: {};
   image: {};
@@ -28,7 +28,10 @@ export class PessoaNewComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    let id : number = this.route.params['id'];
+    let id = null;
+    this.route.params.subscribe(params => {
+      id = +params['id']; // (+) converts string 'id' to a number
+    });
     if(id && id != null) {
       this.findById(id);
     }
@@ -40,7 +43,7 @@ export class PessoaNewComponent implements OnInit {
     }, err => {
       this.showMessage({
         type: 'error',
-        text: err['error']['errors'][0]
+        text: err['message']
       });
     });
   }

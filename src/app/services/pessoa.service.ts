@@ -1,7 +1,7 @@
 import { Pessoa } from './../model/pessoa.model';
 import { HELP_PESSOA_API } from './helppessoa.api';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,8 @@ export class PessoaService {
   }
 
   findAll(page: number, count: number) {
-    return this.http.get(`${HELP_PESSOA_API}/pessoas/${page}/${count}`);
+    const params = new HttpParams().set('page', page.toString()).set('count', count.toString());
+    return this.http.get(`${HELP_PESSOA_API}/pessoas`, { params });
   }
 
   findById(id: number) {
