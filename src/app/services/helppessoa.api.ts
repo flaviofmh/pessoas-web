@@ -1,0 +1,1 @@
+export const HELP_PESSOA_API = 'http://localhost:8080';

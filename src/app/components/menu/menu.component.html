@@ -1,7 +1,7 @@
 <aside class="main-sidebar">
-    <section class="sidebar">
+    <section class="sidebar" style="height: auto;">
 
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu tree" data-widget="tree">
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Pessoa</span>
@@ -10,8 +10,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Lista</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Nova Pessoa</a></li>
+            <li><a [routerLink]="['/pessoa']"><i class="fa fa-circle-o"></i> Lista</a></li>
+            <li><a [routerLink]="['/pessoa-new']"><i class="fa fa-circle-o"></i> Nova Pessoa</a></li>
           </ul>
         </li>
       </ul>
