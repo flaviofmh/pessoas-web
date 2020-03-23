@@ -1,0 +1,94 @@
+<div class="col-md-12" style="margin-left:0%">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Registrar Pessoa</h3>
+      </div>
+      <form class="form-horizontal" #form="ngForm" (ngSubmit)="register()" >
+        <div [ngClass]="classCss" role="alert" *ngIf="message">
+          <strong>{{ message.text }}</strong>
+        </div>
+        <div class="box-body">
+          <div [ngClass]="getFormGroupClass(false, nome.dirty)">
+            <label for="inputName" class="col-sm-2 control-label">Nome</label>
+            <div class="col-sm-10">
+              <input 
+                    type="text" 
+                    [(ngModel)]="pessoa.nome"
+                    class="form-control" 
+                    name="nome"
+                    id="inputName"
+                    #nome="ngModel"
+                    placeholder="Nome"
+                    nome
+                    required>
+              <span class="help-block" *ngIf="nome.dirty"> Nome obrigatorio</span>
+            </div>
+          </div>
+
+          <div [ngClass]="getFormGroupClass(false, cpf.dirty)">
+            <label for="inputName" class="col-sm-2 control-label">CPF</label>
+            <div class="col-sm-10">
+              <input 
+                    type="text" 
+                    [(ngModel)]="pessoa.cpf"
+                    class="form-control" 
+                    name="cpf"
+                    id="inputName"
+                    #nome="ngModel"
+                    placeholder="CPF"
+                    cpf
+                    required>
+              <span class="help-block" *ngIf="nome.dirty"> CPF obrigatorio</span>
+            </div>
+          </div>
+  
+          <div class="form-group" [ngClass]="getFormGroupClass(dataNascimento.invalid, dataNascimento.dirty)">
+              <label for="inputData" class="col-sm-2 control-label">Data Nascimento</label>
+              <div class="col-sm-4"> 
+                <input 
+                      type="text" 
+                      [(ngModel)]="pessoa.dataNascimento"
+                      id="inputData" 
+                      #dataNascimento="ngModel"
+                      class="form-control" 
+                      name="dataNascimento"
+                      id="datepicker"
+                      required
+                      dataNascimento>
+                <span class="help-block" *ngIf="nome.dirty"> Data de Nascimento obrigatorio</span>
+              </div>
+            </div>
+
+  
+          <div [ngClass]="getFormGroupClass(email.invalid, email.dirty)">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input 
+                    type="email" 
+                    [(ngModel)]="pessoa.email"
+                    class="form-control" 
+                    name="email"
+                    id="inputEmail"
+                    #email="ngModel"
+                    placeholder="Email"
+                    required
+                    email>
+              <span class="help-block" *ngIf="email.invalid && email.dirty"> Email invalido</span>
+            </div>
+          </div>
+  
+          <div>
+            <img [src]="pessoa.foto" class="profile-user-img img-responsive img-circle" alt="User Image">
+            <div class="col-sm-10">
+              <input class="help-block" type="file" accept="image/" (change)="changeListener($event)" id="inputImage" required>
+              <p class="help-block">Input your image...</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="box-footer">
+          <button type="submit" [disabled]="!form.valid" class="btn btn-info pull-right">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
