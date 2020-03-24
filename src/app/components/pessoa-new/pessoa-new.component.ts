@@ -40,6 +40,7 @@ export class PessoaNewComponent implements OnInit {
   findById(id: number) {
     this.pessoaService.findById(id).subscribe((responseApi: ResponseApi) => {
       this.pessoa = responseApi.data;
+      this.pessoa.cpf = this.pessoa.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4");
     }, err => {
       this.showMessage({
         type: 'error',
@@ -58,7 +59,9 @@ export class PessoaNewComponent implements OnInit {
 
   register() {
     this.message = {};
-    this.pessoa.foto = this.image;
+    if(this.image) {
+      this.pessoa.foto = this.image;
+    }
     this.pessoaService.createOrUpdate(this.pessoa).subscribe((responseApi: ResponseApi) => {
       this.pessoa = new Pessoa(null, '', '', '', '', new Date());
       let pessoaRetorno : Pessoa = responseApi.data;
